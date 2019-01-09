@@ -40,7 +40,7 @@ var addclassify = function(req, res) {
 
 var addPay = function(req, res) {
     var parmas = req.body,
-        cname = parmas.cname, //消费名称
+        cname = parmas.cname, //分类名称
         icon = parmas.icon,
         type = parmas.type, //收入支出类型
         user = parmas.user, //用户
@@ -87,9 +87,43 @@ var remPay = function(req, res) {
 
 }
 
+var datechose = function(req, res) {
+    var time = req.query.time, //2019  2019-11
+        user = req.query.user,
+        cname = req.query.cname; //分类名称
+    if (!time || !user || !cname) {
+        res.send({ code: 1, mes: "缺少参数" })
+    } else {
+        var maxYear;
+        if (time.indexOf('-') == -1) { //按年
+            maxYear = time * 1 + 1;
+        } else {
+            var arr = time.split('-');
+            if (arr[1] * 1 < 12) {
+                maxYear = arr[0] + '-' + addZero(arr[1] * 1 + 1);
+            } else {
+                maxYear = (arr[0] * 1 + 1) + '-01';
+            }
+        };
+        mongodb.find(dbBase, 'paylist', { date: { $lt: new Date(maxYear), $gte: new Date(time) }, user: user, cname: { $in: cname.split(',') } }, function(result) {
+            if (result.length) {
+                res.send({ code: 0, mes: result });
+            } else {
+                res.send({ code: 1, mes: "查询失败" });
+            }
+        }, {
+            sort: { date: -1 }
+        })
+    }
+}
+
+function addZero(obj) {
+    return obj >= 10 ? obj : '0' + obj;
+}
 module.exports = {
     classify: classify,
     addclassify: addclassify,
     addPay: addPay,
-    remPay: remPay
+    remPay: remPay,
+    datechose: datechose
 };
