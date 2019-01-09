@@ -40,28 +40,56 @@ var addclassify = function(req, res) {
 
 var addPay = function(req, res) {
     var parmas = req.body,
-        cname = parmas.cname,
+        cname = parmas.cname, //消费名称
         icon = parmas.icon,
-        type = parmas.type,
-        user = parmas.user,
+        type = parmas.type, //收入支出类型
+        user = parmas.user, //用户
         money = parmas.money,
-        date = parmas.date;
-    console.log(parmas)
+        date = parmas.date, //时间
+        iid = parmas.iid; //usericon分类 _id
     if (!cname || !icon || !type || !user || !money || !date) {
         res.send({ code: 3, mes: "缺少参数" })
     } else {
-        mongodb.insert(dbBase, 'paylist', parmas, function(result) {
-            if (result) {
-                res.send({ code: 0, mes: "添加成功" });
+        //判断用户是否存在
+        mongodb.find(dbBase, 'userlist', { _id: user }, function(result) {
+            if (result.length == 0) {
+                res.send({ code: 1, mes: '该用户不存在' })
             } else {
-                res.send({ code: 1, mes: "添加失败" });
+                //判断用户自己的分类有没有
+                mongodb.find(dbBase, 'usericon', { _id: iid }, function(result) {
+                    if (result.length == 0) {
+                        res.send({ code: 2, mes: '该分类不存在' })
+                    } else {
+                        parmas.date = new Date(parmas.date);
+                        mongodb.insert(dbBase, 'paylist', parmas, function(result) {
+                            if (result) {
+                                res.send({ code: 0, mes: "添加成功" });
+                            } else {
+                                res.send({ code: 3, mes: "添加失败" });
+                            }
+                        })
+                    }
+                })
             }
         })
     }
 }
 
+var remPay = function(req, res) {
+    var id = req.body.id;
+    mongodb.remove(dbBase, 'paylist', { _id: id }, function(result) {
+        if (result) {
+            res.send({ code: 0, mes: '删除成功' })
+        } else {
+            res.send({ code: 1, mes: "删除失败" })
+        }
+    })
+
+}
+
 module.exports = {
     classify: classify,
     addclassify: addclassify,
-    addPay: addPay
+    addPay: addPay,
+    remPay: remPay
 };
