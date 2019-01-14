@@ -1,0 +1,82 @@
+        @import 'common.scss';
+        @import '_minxi.scss';
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            header {
+                width: 100%;
+                height: pxTorem(40px);
+                background: yellow;
+                @include box_flex;
+                @include justify(space-between);
+                @include align(center);
+                @include sizing;
+                padding: pxTorem(15px);
+                .change {
+                    @include flex;
+                }
+            }
+            section {
+                .addbill {
+                    @include box_flex;
+                    @include align;
+                    @include justify(space-between);
+                    background: #fff;
+                    height: pxTorem(30px);
+                    border-bottom: 1px solid #000;
+                    #phone {
+                        font-size: pxTorem(20px);
+                    }
+                    input {
+                        background: transparent;
+                        border: none;
+                        width: 40%;
+                    }
+                }
+                .mui-slider-item {
+                    >div {
+                        @include box_flex;
+                        @include flexWrap(wrap);
+                        dl {
+                            width: 25%;
+                            height: pxTorem(80px);
+                            @include box_flex;
+                            @include justify(center);
+                            @include direction(column);
+                            @include align(center);
+                            dt {
+                                font-size: pxTorem(18px);
+                                background: #ccc;
+                                border-radius: 100%;
+                                padding: pxTorem(5px);
+                            }
+                            dd {
+                                font-size: pxTorem(14px);
+                            }
+                        }
+                    }
+                }
+            }
+            footer {
+                span {
+                    @include box_flex;
+                    @include align;
+                    @include justify;
+                    width: 100%;
+                    height: pxTorem(30px);
+                    background: yellow;
+                    border-radius: pxTorem(50px);
+                }
+            }
+        }

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mui.dtpicker.css">
+    <link rel="stylesheet" href="css/mui.picker.css">
+    <link rel="stylesheet" href="css/mui.poppicker.css">
+    <script src='js/libs/flexible.js'></script>
+</head>
+
+<body>
+    <div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+        <!-- 菜单容器 -->
+        <aside class="mui-off-canvas-left">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!-- 菜单具体展示内容 -->
+                    <div class='mui-scroll-tit'>
+                        <h2>选择收支类型：</h2>
+                        <div class='srot'>
+                            <span id='allincome'>所有收入</span>
+                            <span id='allpay'>所有支出</span>
+                            <span id='allbalance'>所有其他</span></div>
+                    </div>
+                    <div class='mui-scroll-tit'>
+                        <h2>收支分类：</h2>
+                        <div class='srot'>
+                            <span data-type="income">餐饮</span>
+                            <span data-type="income">唱歌</span>
+                            <span data-type="income">游泳</span>
+                            <span data-type="income">汽车</span>
+                            <span data-type="income">医疗</span>
+                            <span data-type="income">交通</span>
+                            <span>水果</span>
+                            <span>医疗</span>
+                            <span>饮料</span>
+                        </div>
+                    </div>
+                    <div class="mui-scroll-btn">
+                        <span style='background:#ccc;'>重置</span>
+                        <span style='background:yellow;'>确定</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- 主页面容器 -->
+        <div class="mui-inner-wrap">
+            <!-- 主页面标题 -->
+            <div class="mui-content mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!-- 主界面具体展示内容 -->
+                    <header>
+                        <div class="hed-top"><span>柠檬记账</span></div>
+                        <div class="hed-center">
+                            <div class="left">
+                                <p>本月支出（元）</p>
+                                <span class='big'>55900</span><span>.00</span>
+                            </div>
+                            <div class="right">
+                                <span id='single'>月</span>
+                                <span id='selectY'>2019-01</span>
+                            </div>
+                        </div>
+                        <div class="hed-bottom"><span>本月收入：<span class='price'>9655.00</span></span><span>本月结余：<span class='price'>120
+				   .00</span></span>
+                        </div>
+                    </header>
+                    <section>
+                        <!-- <button class='mui-action-menu'>按钮</button> -->
+                        <div class="centent">
+                            <div class='mui-icon mui-icon-undo mui-action-menu'></div>
+                            <div>
+                                <div class='tab'>
+                                    <span class="active" data-type='1'>账单</span>
+                                    <span data-type='2'>图表</span></div>
+                            </div>
+                            <div class='mui-icon mui-icon-search'></div>
+                        </div>
+                        <!-- 按年来计算 -->
+                        <div class="mui-bill-year">
+                            <ul class="mui-table-view">
+                                <li class="mui-table-view-cell mui-collapse">
+                                    <a class="mui-navigate-right" href="#">
+                                        <div class="mui-bill-year-tab">
+                                            <div class='mui-icon mui-icon-compose'></div>
+                                            <div>
+                                                <dl class='mui-bill-year-pay'>
+                                                    <dt>支出</dt>
+                                                    <dd>8500.00</dd>
+                                                </dl>
+                                                <dl class='mui-bill-year-income'>
+                                                    <dt>收入</dt>
+                                                    <dd>1000.00</dd>
+                                                </dl>
+                                                <dl class='mui-bill-year-balance'>
+                                                    <dt>结余</dt>
+                                                    <dd>-7500.00</dd>
+                                                </dl>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                    <ul class="mui-collapse-content">
+                                        <li>
+                                            <dl>
+                                                <dt><div class='mui-icon mui-icon-spinner-cycle mui-spin'></div></dt>
+                                                <dd><span>餐饮</span>
+                                                    <p>10-09</p>
+                                                </dd>
+                                            </dl>
+                                            <div><span class='mui-bill-year-pay'>890.00</span></div>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><div class='mui-icon mui-icon-spinner-cycle mui-spin'></div></dt>
+                                                <dd><span>餐饮</span>
+                                                    <p>10-08</p>
+                                                </dd>
+                                            </dl>
+                                            <div><span class='mui-bill-year-income'>60.00</span></div>
+                                        </li>
+                                        <li>
+                                            <dl>
+                                                <dt><div class='mui-icon mui-icon-star'></div></dt>
+                                                <dd><span>游泳</span>
+                                                    <p>10-06</p>
+                                                </dd>
+                                            </dl>
+                                            <div><span class='mui-bill-year-pay'>60.00</span></div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 按月计算 -->
+                        <div class="mui-bill-month">
+                            <div><span>10-09</span><span>支出55211.00元</span></div>
+                            <ul class="mui-collapse-content">
+                                <li>
+                                    <dl>
+                                        <dt><div class='mui-icon mui-icon-spinner-cycle mui-spin'></div></dt>
+                                        <dd><span>餐饮</span>
+                                            <p>10-09</p>
+                                        </dd>
+                                    </dl>
+                                    <div><span class='mui-bill-year-pay'>890.00</span></div>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt><div class='mui-icon mui-icon-spinner-cycle mui-spin'></div></dt>
+                                        <dd><span>餐饮</span>
+                                            <p>10-08</p>
+                                        </dd>
+                                    </dl>
+                                    <div><span class='mui-bill-year-income'>60.00</span></div>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt><div class='mui-icon mui-icon-star'></div></dt>
+                                        <dd><span>游泳</span>
+                                            <p>10-06</p>
+                                        </dd>
+                                    </dl>
+                                    <div><span class='mui-bill-year-pay'>60.00</span></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 图表 -->
+                        <div class="mui-bill-tb">
+                            图表
+                        </div>
+                    </section>
+                    <tfoot>
+                        <nav class="mui-bar mui-bar-tab">
+                            <a class="mui-tab-item mui-active" href="#tabbar">
+                                <span class="mui-icon mui-icon-home"></span>
+                                <span class="mui-tab-label">首页</span>
+                            </a>
+                            <a class="mui-tab-item" href="#tabbar-with-chat">
+                                <span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+                                <span class="mui-tab-label">消息</span>
+                            </a>
+                            <a class="mui-tab-item" href="#tabbar-with-contact">
+                                <span class="mui-icon mui-icon-contact"></span>
+                                <span class="mui-tab-label">通讯录</span>
+                            </a>
+                            <a class="mui-tab-item" href="#tabbar-with-map">
+                                <span class="mui-icon mui-icon-gear"></span>
+                                <span class="mui-tab-label">设置</span>
+                            </a>
+                        </nav>
+                    </tfoot>
+                    <div class="addbill" id='addbill'>+</div>
+                </div>
+            </div>
+        </div>
+        <div class="mui-off-canvas-backdrop">
+
+        </div>
+    </div>
+
+    </div>
+    <script src='js/libs/require.js' data-main='./js/index'></script>
+</body>
+
+</html>

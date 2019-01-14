@@ -4,7 +4,7 @@ var mongodb = require('mongodb-curd');
 var dbBase = 'ningmeng';
 
 var classify = function(req, res) {
-    mongodb.find(dbBase, 'usericon', function(result) {
+    mongodb.find(dbBase, 'usericon', { type: req.query.type }, function(result) {
         if (result) {
             res.send({ code: 0, mes: result });
         } else {
@@ -13,6 +13,7 @@ var classify = function(req, res) {
     })
 };
 
+//添加分类
 var addclassify = function(req, res) {
     var parmas = req.body,
         cname = parmas.cname,

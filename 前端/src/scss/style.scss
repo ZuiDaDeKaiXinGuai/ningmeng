@@ -1,0 +1,181 @@
+@import 'common.scss';
+@import '_minxi.scss';
+.mui-inner-wrap {
+    width: 100%;
+    height: 100%;
+    .mui-scroll {
+        height: 100%;
+        width: 100%;
+        header {
+            height: pxTorem(120px);
+            width: 100%;
+            background: yellow;
+            box-sizing: border-box;
+            padding: 0 pxTorem(15px);
+            .hed-top {
+                @include box_flex;
+                width: 100%;
+                height: pxTorem(30px);
+                @include align(center);
+                @include justify(center)
+            }
+            .hed-center {
+                width: 100%;
+                height: pxTorem(60px);
+                .big {
+                    font-size: pxTorem(24px);
+                }
+                @include box_flex;
+                @include justify(space-between);
+                .right {
+                    span {
+                        display: inline-block;
+                        padding: pxTorem(5px) pxTorem(15px);
+                        border: 1px solid #000;
+                        border-radius: pxTorem(50px);
+                    }
+                }
+            }
+            .hed-bottom {
+                @include box_flex;
+                @include justify(space-around);
+                .price {
+                    font-size: pxTorem(18px)
+                }
+            }
+        }
+        section {
+            width: 100%;
+            .centent {
+                width: 100%;
+                height: pxTorem(30px);
+                @include box_flex;
+                @include justify(space-between);
+                text-align: center;
+                @include align;
+                @include sizing;
+                padding: 0 pxTorem(15px);
+                div:nth-child(2) {
+                    .tab {
+                        border: 1px solid #000;
+                        border-radius: pxTorem(20px);
+                        overflow: hidden;
+                        span {
+                            padding: pxTorem(5px) pxTorem(15px);
+                        }
+                        span.active {
+                            background: yellow;
+                        }
+                    }
+                }
+            }
+            .mui-bill-year {
+                .mui-bill-year-tab {
+                    @include box_flex;
+                    @include align;
+                    div:nth-child(2) {
+                        @include box_flex;
+                        @include flex;
+                        dl {
+                            @include flex;
+                            @include box_flex;
+                            @include justify(center);
+                            @include direction(column);
+                            @include align(center);
+                        }
+                        .mui-bill-year-pay {
+                            color: red
+                        }
+                        .mui-bill-year-balance {
+                            color: #999
+                        }
+                        .mui-bill-year-income {
+                            color: green
+                        }
+                    }
+                }
+            }
+            .mui-collapse-content {
+                li {
+                    @include box_flex;
+                    @include sizing;
+                    padding: 0 pxTorem(15px);
+                    @include justify(space-between);
+                    @include align;
+                    height: pxTorem(40px);
+                    border-bottom: 1px solid #ccc;
+                    dl {
+                        @include align;
+                        @include box_flex;
+                    }
+                    .mui-bill-year-pay {
+                        color: red;
+                        font-size: pxTorem(18px);
+                        font-weight: bold;
+                    }
+                    .mui-bill-year-income {
+                        color: green;
+                        font-size: pxTorem(18px);
+                        font-weight: bold;
+                    }
+                }
+            }
+            .mui-bill-month {
+                >div {
+                    width: 100%;
+                    @include box_flex;
+                    @include sizing;
+                    padding: 0 pxTorem(15px);
+                    @include justify(space-between);
+                }
+            }
+            .mui-bill-tb {
+                display: none;
+            }
+        }
+        .addbill {
+            width: pxTorem(80px);
+            height: pxTorem(80px);
+            background: yellow;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: 99;
+            font-size: pxTorem(60px);
+            color: #fff;
+            margin-left: pxTorem(-40px);
+            margin-top: pxTorem(-60px);
+            text-align: center;
+            line-height: pxTorem(80px)
+        }
+    }
+}
+
+.mui-scroll-wrapper {
+    .mui-scroll-tit {
+        h2 {
+            font-size: pxTorem(18px);
+            font-weight: bold;
+        }
+        .srot {
+            width: 100%;
+            @include box_flex;
+            @include flexWrap(wrap);
+            span {
+                padding: pxTorem(3px) pxTorem(10px);
+                border: 1px solid #000;
+                border-radius: pxTorem(20px);
+                margin: pxTorem(5px);
+            }
+            .active {
+                border: 2px solid salmon;
+            }
+        }
+    }
+    .mui-scroll-btn {
+        span {
+            padding: pxTorem(5px) pxTorem(10px);
+        }
+    }
+}

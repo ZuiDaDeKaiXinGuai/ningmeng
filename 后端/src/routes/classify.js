@@ -4,7 +4,9 @@ var mongodb = require('mongodb-curd');
 var dbBase = 'ningmeng';
 var classI = require('./classifyApi/index');
 
-router.get('/usericon', classI.classify);
+//icon列表
+router.get('/classify', classI.classify);
+//添加分类接口  
 router.post('/addclassify', classI.addclassify);
 router.post('/addPay', classI.addPay);
 router.post('/rempay', classI.remPay);
